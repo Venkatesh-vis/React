@@ -10,8 +10,6 @@ function App() {
     <div>
       <Mynav />
       <Car/>
-      
-
       <Data></Data>
       <Foot/>
     </div>
