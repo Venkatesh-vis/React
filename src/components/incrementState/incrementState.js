@@ -6,6 +6,10 @@ class Increment extends Component {
     img: "https://images.samsung.com/is/image/samsung/p6pim/in/2202/gallery/in-galaxy-a53-5g-a536-416923-sm-a536elbgins-thumb-531436248?$344_344_PNG$",
     itemcount: 0,
   };
+
+  // state={
+  //   products:[{},{}]
+  // }
   Inccount = ()=>{
     this.setState({
         itemcount:this.state.itemcount+1
