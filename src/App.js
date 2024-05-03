@@ -1,5 +1,6 @@
 import "./App.css";
-import Product from "./components/incrementState/Prod/Prod";
+import Todo from "./components/incrementState/todo/todo";
+// import Product from "./components/incrementState/Prod/Prod";
 
 
 
@@ -7,7 +8,8 @@ import Product from "./components/incrementState/Prod/Prod";
 function App() {
   return (
     <div>
-     <Product/>     
+     {/* <Product/>      */}
+     <Todo/>
     </div>
   );
 }
