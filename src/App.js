@@ -1,6 +1,7 @@
 import "./App.css";
-import Todo from "./components/incrementState/todo/todo";
-// import Product from "./components/incrementState/Prod/Prod";
+import Mynav from "./components/incrementState/Navbar/Navbar";
+// import Todo from "./components/incrementState/todo/todo";
+import Product from "./components/incrementState/Prod/Prod";
 
 
 
@@ -8,8 +9,9 @@ import Todo from "./components/incrementState/todo/todo";
 function App() {
   return (
     <div>
-     {/* <Product/>      */}
-     <Todo/>
+      <Mynav/>
+     <Product/>     
+     {/* <Todo/> */}
     </div>
   );
 }

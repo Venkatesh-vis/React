@@ -338,6 +338,11 @@ class Product extends Component {
                 <Card.Body>
                   <Card.Title>{eachprod.title}</Card.Title>
                   <Card.Text>{eachprod.category}</Card.Text>
+                 {
+                  (eachprod.itemcount===0)?
+                  <Card.Text>Price: <b>{eachprod.price}/-</b></Card.Text>:
+                  <Card.Text>Price: <b>{eachprod.price*eachprod.itemcount}/-</b></Card.Text>
+                 }
                   <Card.Text>
                     Products Added : <b>{eachprod.itemcount}</b>
                   </Card.Text>
