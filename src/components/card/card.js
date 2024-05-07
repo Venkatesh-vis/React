@@ -11,9 +11,9 @@ function Prod(props) {
         <Card.Title>{title}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item><b>Category :</b>{category}</ListGroup.Item>
-        <ListGroup.Item><b>Price :</b>{price}</ListGroup.Item>
-        <ListGroup.Item><b>Rating :</b>{rating.rate}</ListGroup.Item>
+        <ListGroup.Item><b>Category : </b>{category}</ListGroup.Item>
+        <ListGroup.Item><b>Price : </b>{price}</ListGroup.Item>
+        <ListGroup.Item><b>Rating : </b>{rating.rate}</ListGroup.Item>
       </ListGroup>
     </Card>
   );
