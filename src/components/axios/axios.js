@@ -21,54 +21,6 @@ class Productt extends Component {
     });
   };
 
-  // elec=()=>{
-  //   this.setState({
-  //     prods:this.state.dummy
-  //   })
-  //   const res = this.state.prods.filter((eachitem)=>{
-  //     return eachitem.category==="electronics"
-  //   })
-  //   this.setState({
-  //     prods:res
-  //   })
-  // }
-
-  // jewel=()=>{
-  //   this.setState({
-  //     prods:this.state.dummy
-  //   })
-  //   const res= this.state.prods.filter((eachitem)=>{
-  //     return eachitem.category==="jewelery"
-  //   })
-  //   this.setState({
-  //     prods:res
-  //   })
-  // }
-
-  // men=()=>{
-  //   this.setState({
-  //     prods:this.state.dummy
-  //   })
-  //   const res= this.state.prods.filter((eachitem)=>{
-  //     return eachitem.category==="men's clothing"
-  //   })
-  //   this.setState({
-  //     prods:res
-  //   })
-  // }
-
-  // women=()=>{
-  //   this.setState({
-  //     prods:this.state.dummy
-  //   })
-  //   const res= this.state.prods.filter((eachitem)=>{
-  //     return eachitem.category==="women's clothing"
-  //   })
-  //   this.setState({
-  //     prods:res
-  //   })
-  // }
-
   category=(cate)=>{
     const res=this.state.dummy.filter((item)=>{
       return item.category===cate
