@@ -101,13 +101,13 @@ class Productt extends Component {
               <Button onClick={()=>this.category("electronics")} variant="primary">
                 Electronics
               </Button>
-              <Button onClick={()=>this.category("electronics")} variant="secondary">
+              <Button onClick={()=>this.category("jewelery")} variant="secondary">
                 Jewelery
               </Button>
-              <Button onClick={()=>this.category("electronics")} variant="success">
+              <Button onClick={()=>this.category("men's clothing")} variant="success">
                 Men's clothing
               </Button>
-              <Button onClick={()=>this.category("electronics")} variant="info">
+              <Button onClick={()=>this.category("women's clothing")} variant="info">
                 Women's clothing
               </Button>
             </div>
