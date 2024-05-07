@@ -2,13 +2,13 @@ import axios from "axios";
 import { Component } from "react";
 import Prod from "../card/card";
 import Button from "react-bootstrap/Button";
+import Spin from "../spinner/spinner";
 
 class Productt extends Component {
   constructor() {
     super();
     this.state = {
-      prods: [],
-      dummyprods:[]
+      prods: []
     };
   }
 
@@ -17,7 +17,7 @@ class Productt extends Component {
   }
 
   getData = async () => {
-    const dta = await axios("https://fakestoreapi.com/products/category/jewelery");
+    const dta = await axios("https://fakestoreapi.com/products/");
     this.setState({
       prods: dta.data,
     });
@@ -27,6 +27,9 @@ class Productt extends Component {
   render() {
     return (
       <>
+      ({
+        this.state.prods.length>0?
+        <>
         <div
           style={{
             display: "flex",
@@ -35,7 +38,7 @@ class Productt extends Component {
             justifyContent: "center",
           }}
         >
-          <Button variant="dark">All</Button>
+          <Button  variant="dark">All</Button>
           <Button variant="primary">Electronics</Button>
           <Button variant="secondary">Jewelery</Button>
           <Button variant="success">Men's clothing</Button>
@@ -50,6 +53,10 @@ class Productt extends Component {
             );
           })}
         </div>
+      </>:
+      <Spin/>
+      })
+           
       </>
     );
   }
