@@ -2,67 +2,103 @@ import axios from "axios";
 import { Component } from "react";
 import Prod from "../card/card";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 class Productt extends Component {
   constructor() {
     super();
     this.state = {
       pages: [],
-      item:null
+      item: null,
+      pqr: {},
     };
   }
 
-  data=async()   =>{
-  const dta = await axios.get("https://fakestoreapi.com/products")
-  this.setState({
-    pages:dta.data
-  })
-  }
-
-  componentDidMount(){
-    this.data()
-  }
-
-  content=(id)=>{
-    const xyz =this.state.pages.map((no)=>{
-      if(id===no.id){
-        return no
-      }
-      else{
-        return no
-      }
-    })
+  data = async () => {
+    const dta = await axios.get("https://fakestoreapi.com/products");
     this.setState({
-      item:xyz
-    })
+      pages: dta.data,
+    });
+  };
+
+  componentDidMount() {
+    this.data();
+    this.content();
   }
 
- 
-   render() {
+  content = async (id) => {
+    // var abc=null
+    // const xyz =this.state.pages.map((no)=>{
+    const xyz = await axios.get(`https://fakestoreapi.com/products/${id}`);
+    console.log(xyz.data);
+
+    // if(id===no.id){
+    //    return abc = await  axios.get(`https://fakestoreapi.com/products/${id}`)
+
+    // }
+    // else{
+    //   return no
+    // }
+    // })
+    this.setState({
+      // item:abc,
+      pqr: xyz,
+    });
+  };
+
+  render() {
+    console.log(this.state.pqr.data);
     return (
-    <>
-    <div>
-      <h1>{this.item.title}</h1>
-    </div>
-      
-     <>
-     <div style={{
-      display:"flex",
-      justifyContent:"center",
-      gap:"20px"
-     }}>
-      {
-        this.state.pages.map((items)=>{
-          return(
-            <>
-             <Button onClick={()=>this.content(items.id)} variant="success">{items.id}</Button>
-            </>
-          )
-        })
-      }
-     </div>
-     </>
-     </>
+      <>
+        {this.state.pqr.data ? (
+          <>
+            {/* <h2>{}</h2> */}
+            <Card style={{ width: "18rem",margin:"0px 0px 50px 600px" }} >
+              <Card.Img
+                variant="top"
+                src={this.state.pqr.data.image}
+                height={250}
+              />
+              <Card.Body>
+                <Card.Title>{this.state.pqr.data.title}</Card.Title>
+                <Card.Text>
+                  <b>Id:</b> {this.state.pqr.data.id}
+                </Card.Text>
+                <Card.Text>
+                  <b>Category :</b> {this.state.pqr.data.category}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </>
+        ) : (
+          <>
+            <h2>No items found</h2>
+          </>
+        )}
+
+        <>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px",
+            }}
+          >
+            {this.state.pages.map((items) => {
+              return (
+                <>
+                  <Button
+                    onClick={() => this.content(items.id)}
+                    variant="success"
+                  >
+                    {items.id}
+                  </Button>
+                </>
+              );
+            })}
+          </div>
+        </>
+      </>
     );
   }
 }
