@@ -11,12 +11,14 @@ class Carr extends Component {
   };
 
   add = () => {
+    const newimg = prompt("enter image address")
     this.setState({
       imgs: [
         ...this.state.imgs,
-        "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+        newimg,
       ],
     });
+    
   };
   render() {
      
