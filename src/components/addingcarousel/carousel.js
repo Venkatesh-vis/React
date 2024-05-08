@@ -18,15 +18,15 @@ class Carr extends Component {
         newimg,
       ],
     });
-    
+
   };
   render() {
-     
     return (
       <>
         <>
         <Carousel data-bs-theme="dark">
       {this.state.imgs.map((imgz)=>{
+        
         return(
             <Carousel.Item>
         <img

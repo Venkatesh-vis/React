@@ -7,8 +7,9 @@ import Productt from "./components/axios/axios";
 function App() {
   return (
     <div>
+      <Carr/>
      {/* <Productt/> */}
-     <Carr/>
+     
     </div>
   );
 }
