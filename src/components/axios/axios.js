@@ -27,21 +27,9 @@ class Productt extends Component {
   }
 
   content = async (id) => {
-    // var abc=null
-    // const xyz =this.state.pages.map((no)=>{
     const xyz = await axios.get(`https://fakestoreapi.com/products/${id}`);
     console.log(xyz.data);
-
-    // if(id===no.id){
-    //    return abc = await  axios.get(`https://fakestoreapi.com/products/${id}`)
-
-    // }
-    // else{
-    //   return no
-    // }
-    // })
     this.setState({
-      // item:abc,
       pqr: xyz,
     });
   };
@@ -52,7 +40,6 @@ class Productt extends Component {
       <>
         {this.state.pqr.data ? (
           <>
-            {/* <h2>{}</h2> */}
             <Card style={{ width: "18rem",margin:"0px 0px 50px 600px" }} >
               <Card.Img
                 variant="top"
