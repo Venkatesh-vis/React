@@ -1,14 +1,13 @@
 import "./App.css";
-import Carr from "./components/addingcarousel/carousel";
-import Productt from "./components/axios/axios";
+import Timer from "./components/function/usestate";
+
 
 
 
 function App() {
   return (
     <div>
-      <Carr/>
-     {/* <Productt/> */}
+     <Timer/>
      
     </div>
   );
