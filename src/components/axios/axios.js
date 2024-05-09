@@ -9,7 +9,6 @@ class Productt extends Component {
     super();
     this.state = {
       pages: [],
-      item: null,
       pqr: {},
     };
   }
@@ -28,14 +27,14 @@ class Productt extends Component {
 
   content = async (id) => {
     const xyz = await axios.get(`https://fakestoreapi.com/products/${id}`);
-    console.log(xyz.data);
+    // console.log(xyz.data);
     this.setState({
-      pqr: xyz,
+      pqr: xyz.data
     });
   };
 
   render() {
-    console.log(this.state.pqr.data);
+    console.log(this.state.pqr);
     return (
       <>
         {this.state.pqr.data ? (
@@ -43,16 +42,16 @@ class Productt extends Component {
             <Card style={{ width: "18rem",margin:"0px 0px 50px 600px" }} >
               <Card.Img
                 variant="top"
-                src={this.state.pqr.data.image}
+                src={this.state.pqr.image}
                 height={250}
               />
               <Card.Body>
-                <Card.Title>{this.state.pqr.data.title}</Card.Title>
+                <Card.Title>{this.state.pqr.title}</Card.Title>
                 <Card.Text>
-                  <b>Id:</b> {this.state.pqr.data.id}
+                  <b>Id:</b> {this.state.pqr.id}
                 </Card.Text>
                 <Card.Text>
-                  <b>Category :</b> {this.state.pqr.data.category}
+                  <b>Category :</b> {this.state.pqr.category}
                 </Card.Text>
               </Card.Body>
             </Card>
