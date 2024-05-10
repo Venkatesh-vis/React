@@ -1,5 +1,6 @@
 import "./App.css";
 import Timer from "./components/function/usestate";
+import Todo from "./components/todo/todo";
 
 
 
@@ -7,7 +8,8 @@ import Timer from "./components/function/usestate";
 function App() {
   return (
     <div>
-     <Timer/>
+     {/* <Timer/> */}
+     <Todo/>
      
     </div>
   );
