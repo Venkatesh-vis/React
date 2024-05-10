@@ -1,5 +1,5 @@
 import "./App.css";
-import Timer from "./components/function/usestate";
+import Timer from "./components/timer/usestate";
 import Todo from "./components/todo/todo";
 
 

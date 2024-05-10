@@ -6,22 +6,27 @@ const Todo = ()=>{
 
     const addtask=()=>{
         const newTask = prompt("enter your task")
-        newtask(task.push(newTask))
+        newtask(task=>[...task,newTask])
+        console.log(task);
+    }
+    const clearAllTasks=()=>{
+        newtask([])
     }
     
     return(
         <>
         {
-            task.map((work)=>{
+            task.map((task)=>{
                 return(
-                    <>
-                    <h1>{work}</h1>
-                    </>
+                    <div>
+                    <h1>{task}</h1>
+                    <button>Delete</button>
+                    </div>
                 )
             })
         }
         <button onClick={addtask}>Add Task</button>
-        <button>Clear All Tasks</button>
+        <button onClick={clearAllTasks}>Clear All Tasks</button>
         </>
     )
 }
