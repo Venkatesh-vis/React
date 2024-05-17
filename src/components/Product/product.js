@@ -1,51 +1,63 @@
-import axios from "axios"
-import React, { useState } from "react"
-import { useEffect } from "react"
-import Button from 'react-bootstrap/Button';
+import axios from "axios";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import Button from "react-bootstrap/Button";
+// import { EachProduct } from "./eachProduct";
 
+const Prod = () => {
+  const [items, setItems] = useState([]);
+  const [id, setId]=useState(0)
+  const [item, setItem] = useState({});
 
+  useEffect(() => {
+    fetchdata();
+  }, []);
 
-const Prod = ()=>{
+  useEffect(() => {
+    fetchitem();
+  }, [id]);
 
-    const[items,setItems]=useState([])
-    const[item,setItem]=useState({})
+  const fetchitem = async () => {
+    const itm = await axios.get(`https://fakestoreapi.com/products/${id}`);
+    setItem(itm.data);
+   
+    console.log("component did update")
+  };
 
-    useEffect(()=>{
-        fetchdata()
-    },[])
+  const fetchdata = async () => {
+    const dta = await axios.get(`https://fakestoreapi.com/products`);
+    setItems(dta.data);
+    console.log("component did mount")
+  };
 
-    useEffect(()=>{
-        fetchitem()
-    },[item])
-
-    const fetchitem = async (id)=>{
-        const itm = await axios.get(`https://fakestoreapi.com/products/${id}`)
-        setItem(itm.data)
-    }
-
-    const fetchdata= async ()=>{
-        const dta = await axios.get(`https://fakestoreapi.com/products`)
-        setItems(dta.data)
-    }
-
-
-    return(
-        <>
-        <h1>{item.title}</h1>
-        <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:"20px"}}>
+// console.log(item)
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
         {
-            items.map((item)=>{
-                return(
-                    <React.Fragment key={item.id}>
-                    <Button onClick={fetchitem(item.id)} variant="warning">{item.id}</Button>
-                    </React.Fragment>
-                )
-            })
+        items.map((item) => {
+          return (
+            <React.Fragment key={item.id}>
+              <Button variant="warning" onClick={()=>setId(item.id)}>
+                {item.id}
+              </Button>
+            </React.Fragment>
+          );
+        })
         }
-        </div>
+      </div>
 
-        </>
-    )
-}
+{/* <EachProduct ids={id}/> */}
+      <p>{item.title}</p>
+    </>
+  );
+};
 
-export default Prod
+export default Prod;
