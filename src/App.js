@@ -1,5 +1,5 @@
 import "./App.css";
-import Prod from "./components/Product/product";
+import Navs from "./components/navigations/nav";
 
 
 
@@ -8,8 +8,7 @@ import Prod from "./components/Product/product";
 function App() {
   return (
     <div>
-    <Prod/>
-     
+     <Navs/>
     </div>
   );
 }
