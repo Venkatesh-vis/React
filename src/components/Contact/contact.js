@@ -1,4 +1,4 @@
-import Navb from "../Navbar"
+import Navb from "../otherComponents/Navbar"
 
 
 const Contact = ()=>{

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Cardd from "./card";
-import Navb from "../Navbar";
+import Navb from "../otherComponents/Navbar";
+import Spin from "../otherComponents/spinner";
 
 const Prods = () => {
   const [items, updateItems] = useState([]);
@@ -14,12 +15,14 @@ const Prods = () => {
     const dta = await axios.get("https://dummyjson.com/products");
     updateItems(dta.data.products);
   };
-  console.log(items);
+  //console.log(items);
 
   return (
     <>
       <Navb />
-      <div
+      {
+        (items.length>0) ?
+<div
         style={{
           marginTop: "20px",
           display: "flex",
@@ -36,6 +39,10 @@ const Prods = () => {
           );
         })}
       </div>
+      :
+      <Spin/>
+      }
+      
     </>
   );
 };
