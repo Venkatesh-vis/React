@@ -41,9 +41,9 @@ const EachProd = () => {
 
               <Card.Title>{title}</Card.Title>
               <Card.Text>{description}</Card.Text>
-              <Card.Text>{brand}</Card.Text>
-              <Card.Text>{category}</Card.Text>
-              <Card.Text>{price}</Card.Text>
+              <Card.Text><b>Brand: </b>{brand}</Card.Text>
+              <Card.Text><b>Category: </b>{category}</Card.Text>
+              <Card.Text><b>Price: </b>${price}</Card.Text>
               <Button variant="outline-success">Add to Cart</Button>
             </Card.Body>
           </Card>
