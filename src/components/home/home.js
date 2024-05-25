@@ -31,6 +31,7 @@ const Prods = () => {
           justifyContent: "center",
         }}
       >
+        
         {items.map((eachProduct) => {
           return (
             <>
@@ -38,6 +39,7 @@ const Prods = () => {
             </>
           );
         })}
+        
       </div>
       :
       <Spin/>

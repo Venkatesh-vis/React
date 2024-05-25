@@ -5,28 +5,36 @@ import Contact from "../Contact/contact"
 import EachProd from "../eachproduct/eachproduct"
 import Cart from "../Cart/cart"
 import { createContext, useState } from "react"
+import WrongPath from "../otherComponents/wrongpath"
+import Emp from "../employees/employee"
 
-
-export const Item = createContext()
+export const user = createContext()
 
 const Navs = ()=>{
+    const[data,setData]=useState([])
 
-    const[eachitem,updateEachItem]=useState({})
+    const addcarthandler=(eachproduct)=> {
+        setData([...data,eachproduct])
+    }
+
 
     return(
         <>
-        <Item.Provider value={eachitem}>
+        <user.Provider value={{data,setData,addcarthandler}}>
         <BrowserRouter>
         <Routes>
             <Route path='/' Component={Prods}/>
             <Route path='/About' Component={About}/>
             <Route path="/Contact" Component={Contact}/>
             <Route path="/:Product/:id" Component={EachProd}/>
-            <Route path='/Cart' Component={Cart}></Route>
+            <Route path='/Cart' Component={Cart}/>
+            <Route path="/Employee" Component={Emp}/>
+
+            <Route path="*" Component={WrongPath}/>
 
         </Routes>
         </BrowserRouter>
-        </Item.Provider>
+        </user.Provider>
         </>
     )
 }

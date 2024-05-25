@@ -16,6 +16,7 @@ const Navb = ()=>{
             <Nav.Link ><Link style={linkStyle} to={'/'}>Home</Link></Nav.Link>
             <Nav.Link><Link style={linkStyle} to={'/About'}>About</Link></Nav.Link>
             <Nav.Link ><Link style={linkStyle} to={'/Contact'}>Contact</Link></Nav.Link>
+            <Nav.Link ><Link style={linkStyle} to={'/Employee'}>Employees</Link></Nav.Link>
           </Nav>
           <Row>
         <Col xs="auto">

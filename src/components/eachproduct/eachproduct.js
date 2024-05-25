@@ -1,17 +1,27 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Navb from "../otherComponents/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
+import { user } from "../navigations/nav";
 
+
+export const CartProd = createContext()
+
+//component starts here
 const EachProd = () => {
   const { id } = useParams();
 
-  console.log(id);
+  const {addcarthandler}=useContext(user)
+
+
+
+  // console.log(id);
 
   const [eachprod, setEachprod] = useState({});
+  const[cart,updatecart]=useState([])
 
   const { title, description, price, brand, category, thumbnail } = eachprod;
 
@@ -23,12 +33,19 @@ const EachProd = () => {
     const res = await axios.get(`https://dummyjson.com/products/${id}`);
     setEachprod(res.data);
   };
-  console.log(eachprod);
+  // console.log(eachprod);
+
+
+ 
+
+ 
 
   return (
-    <>
-      <Navb />
+    
+     
+      <CartProd.Provider value={{cart}}>
       <>
+      <Navb />
         {Object.keys(eachprod).length > 0 ? (
           <Card className="text-center">
             <Card.Body>
@@ -44,7 +61,7 @@ const EachProd = () => {
               <Card.Text><b>Brand: </b>{brand}</Card.Text>
               <Card.Text><b>Category: </b>{category}</Card.Text>
               <Card.Text><b>Price: </b>${price}</Card.Text>
-              <Button variant="outline-success">Add to Cart</Button>
+              <Button onClick={()=>addcarthandler(eachprod)} variant="outline-success">Add to Cart</Button>
             </Card.Body>
           </Card>
         ) : (
@@ -59,7 +76,8 @@ const EachProd = () => {
           />
         )}
       </>
-    </>
+      </CartProd.Provider>
+  
   );
 };
 
