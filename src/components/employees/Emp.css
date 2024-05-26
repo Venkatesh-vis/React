@@ -1,0 +1,49 @@
+/* Emp.css */
+
+.employee-card {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .employee-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .employee-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .button-group .btn {
+    flex: 1;
+  }
+  
+  .mr-2 {
+    margin-right: 10px;
+  }
+  

@@ -16,13 +16,11 @@ console.log(empd);
   const handleName = (e)=>{
     const name=e.target.value
     updateEmp({...emp, name})
-    console.log(emp);
   }
 
   const handleId = (e)=>{
     const id=e.target.value
     updateEmp({...emp, id})
-    console.log(emp);
   }
 
   const handleDesig = (e)=>{
@@ -30,13 +28,19 @@ console.log(empd);
     updateEmp({...emp, designation})
     console.log(emp);
   } 
+
+  const handleSubmit = (e)=> {
+    e.preventDefault()
+    userHandler(emp)
+  }
  
 
   return (
     <>
       <Navb />
-      <Form onSubmit={()=>userHandler(emp)}>
-        <Form.Group className="mb-3">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+      <Form onSubmit={handleSubmit} style={{ width: "20%", textAlign: "center" }}>
+        <Form.Group  className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
@@ -64,12 +68,14 @@ console.log(empd);
             onChange={handleDesig}
             name="desig"
           />
+          
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button style={{width:"100%"}} variant="primary" type="submit">
           Submit
         </Button>
       </Form>
+      </div>
     </>
   );
 };
