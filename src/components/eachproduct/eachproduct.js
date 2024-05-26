@@ -43,7 +43,7 @@ const EachProd = () => {
   return (
     
      
-      <CartProd.Provider value={{cart}}>
+     
       <>
       <Navb />
         {Object.keys(eachprod).length > 0 ? (
@@ -76,7 +76,6 @@ const EachProd = () => {
           />
         )}
       </>
-      </CartProd.Provider>
   
   );
 };

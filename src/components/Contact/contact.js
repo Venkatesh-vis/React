@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Navb from "../otherComponents/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,40 +6,42 @@ import { user } from "../navigations/nav";
 
 
 
+
 const Contact = () => {
-  const [emp, updateEmp] = useState(
-    {
-      name: "",
-      id: "",
-      desig: ""
-    }
-  );
-const {data,setData}=useContext(user)
+  const [emp, updateEmp] = useState({});
+const {empd,userHandler}=useContext(user)
+console.log(empd);
 
 
-  // const[data,setData]=useState([])
-
-  const handle = (e)=>{
-    const {name,value}=e.target
-    updateEmp({...emp, [name]:value});
+  const handleName = (e)=>{
+    const name=e.target.value
+    updateEmp({...emp, name})
+    console.log(emp);
   }
 
-  const datahandle = () => {
-    setData([...data,emp])
+  const handleId = (e)=>{
+    const id=e.target.value
+    updateEmp({...emp, id})
+    console.log(emp);
   }
+
+  const handleDesig = (e)=>{
+    const designation=e.target.value
+    updateEmp({...emp, designation})
+    console.log(emp);
+  } 
  
 
   return (
     <>
       <Navb />
-      <Form>
+      <Form onSubmit={()=>userHandler(emp)}>
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter name"
-            onChange={handle}
-            value={emp.name}
+            onChange={handleName}
             name="name"
           />
         </Form.Group>
@@ -47,10 +49,9 @@ const {data,setData}=useContext(user)
         <Form.Group className="mb-3">
           <Form.Label>Employee ID</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             placeholder="Enter ID"
-            onChange={handle}
-            value={emp.id}
+            onChange={handleId}
             name="id"
           />
         </Form.Group>
@@ -60,13 +61,12 @@ const {data,setData}=useContext(user)
           <Form.Control
             type="text"
             placeholder="Enter Designation"
-            onChange={handle}
-            value={emp.desig}
+            onChange={handleDesig}
             name="desig"
           />
         </Form.Group>
 
-        <Button onClick={datahandle} variant="primary" type="submit">
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
