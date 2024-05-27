@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Cardd = (props) => {
     const {brand,category,price,rating,thumbnail,title,id}=props.item
    
-    
   return (
     <>
       <Card style={{ width: "30%" }}>
@@ -23,7 +22,7 @@ const Cardd = (props) => {
           <ListGroup.Item><b>Price: </b>${price}</ListGroup.Item>
           <ListGroup.Item><b>Rating: </b>{rating}</ListGroup.Item>
         </ListGroup>
-       <Button variant="secondary"><b><Link to={`/${category}/${id}`} style={{textDecoration:"none",color:"white"}}>Details</Link></b></Button>
+        <Link to={`/${category}/${id}`} style={{textDecoration:"none",color:"white",width:"100%"}}><Button style={{width:"100%"}} variant="secondary"><b>Details</b></Button></Link>
       </Card>
     </>
   );
