@@ -21,7 +21,6 @@ const Cart = () => {
     <>
       <Navb />
       <div className="container mt-4">
-        <h1>Cart</h1>
         {data && data.length > 0 ? (
           data.map((details, index) => (
             <Card key={index} className="mb-4">

@@ -6,5 +6,9 @@
 }
 #card{
     width: 30%;
-    /* box-shadow: 2px 2px 2px black; */
+}
+
+#lost{
+    background-size: contain;
+    background-repeat: no-repeat;
 }

@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useContext } from 'react';
+import { user } from '../navigations/nav';
 
 const Navb = ()=>{
    const linkStyle = {textDecoration:"none",color:"white"   }
+   const {data} = useContext(user)
+   console.log(data);
     return(
         <>
         <Navbar bg="dark" data-bs-theme="dark">
@@ -20,7 +24,8 @@ const Navb = ()=>{
           </Nav>
           <Row>
         <Col xs="auto">
-            <Link style={linkStyle} to={'/Cart'}><Button variant="secondary">Cart</Button></Link>
+            <Link style={linkStyle} to={'/Cart'}><Button variant="secondary">Cart </Button></Link>
+            <div>{data.length>0 && <> {data.length}</>}</div>
           </Col>
         </Row>
         </Container>
