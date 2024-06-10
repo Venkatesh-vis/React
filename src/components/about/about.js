@@ -28,13 +28,15 @@ const About =()=>{
     }
 
 
+
     const reduxState = useSelector((state)=> state)
     console.log(reduxState);
 
+     
+
     return(
 
-        
-       
+               
 
         <>
         <Navb/>

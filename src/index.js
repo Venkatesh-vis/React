@@ -13,7 +13,6 @@ root.render(
   <Provider store={reduxStore}>
      <App />
   </Provider>
-   
   // </React.StrictMode>
 );
 
