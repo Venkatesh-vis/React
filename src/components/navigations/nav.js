@@ -23,6 +23,8 @@ const Navs = () => {
     setemp([...empd, eachuser]);
   };
 
+  
+
   return (
     <>
       <user.Provider

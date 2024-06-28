@@ -17,7 +17,7 @@ const Cardd = (props) => {
           <Card.Text>
            {category}
           </Card.Text>
-        </Card.Body>
+        </Card.Body>  
         <ListGroup className="list-group-flush">
           <ListGroup.Item><b>Brand: </b>{brand}</ListGroup.Item>
           <ListGroup.Item><b>Price: </b>${price}</ListGroup.Item>

@@ -1,5 +1,6 @@
 import "./App.css";
 import Navs from "./components/navigations/nav";
+import Usered from "./components/otherComponents/usered";
 
 
 
@@ -8,7 +9,8 @@ import Navs from "./components/navigations/nav";
 function App() {
   return (
     <div>
-     <Navs/>
+     {/* <Navs/> */}
+     <Usered/>
     </div>
   );
 }
